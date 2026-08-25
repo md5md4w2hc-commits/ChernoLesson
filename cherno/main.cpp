@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <memory>
 
 class Entity
 {
@@ -13,31 +14,24 @@ public:
     {
         std::cout << "Destroyed Entity !" << std::endl;
     }
-};
-
-class ScopedPtr
-{
-private:
-    Entity* m_Ptr;
-public:
-    ScopedPtr(Entity* ptr)
-        : m_Ptr(ptr)
+    
+    void Print()
     {
         
-    }
-    
-    ~ScopedPtr()
-    {
-        delete m_Ptr;
     }
 };
 
 int main()
 {
     {
-        ScopedPtr e = new Entity();
+        std::weak_ptr<Entity> e0;
+        
+        {
+            std::shared_ptr<Entity> sharedEntity = std::make_shared<Entity>();
+            
+            e0 = sharedEntity;
+        }
     }
-    
     
     std::cin.get();
 }
