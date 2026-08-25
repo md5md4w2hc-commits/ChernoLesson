@@ -2,36 +2,65 @@
 #include <string>
 #include <memory>
 
-class Entity
+class String
 {
+private:
+    char* m_Buffer;
+    unsigned int m_Size;
 public:
-    Entity()
+    String(const char* string)
     {
-        std::cout << "Created Entity !" << std::endl;
+        m_Size = strlen(string);
+        m_Buffer = new char[m_Size + 1];
+        memcpy(m_Buffer, string, m_Size);
+        m_Buffer[m_Size] = 0;
     }
     
-    ~Entity()
+    String(const String& other)
+        : m_Size(other.m_Size)
     {
-        std::cout << "Destroyed Entity !" << std::endl;
-    }
-    
-    void Print()
-    {
+        std::cout << "Copied String !!" << std::endl;
         
+        m_Buffer = new char[m_Size + 1];
+        memcpy(m_Buffer, other.m_Buffer, m_Size + 1);
     }
+    
+    ~String()
+    {
+        delete[] m_Buffer;
+    }
+    
+    char& operator[](unsigned int index)
+    {
+        return m_Buffer[index];
+    }
+    
+    friend std::ostream& operator<<(std::ostream& stream, const String& string);
+
 };
+
+std::ostream& operator<<(std::ostream& stream, const String& string)
+{
+    stream << string.m_Buffer;
+    return stream;
+}
+
+void PrintString(const String& string)
+{
+    std::cout << string << std::endl;
+}
 
 int main()
 {
-    {
-        std::weak_ptr<Entity> e0;
-        
-        {
-            std::shared_ptr<Entity> sharedEntity = std::make_shared<Entity>();
-            
-            e0 = sharedEntity;
-        }
-    }
+    String string = "Cherno";
+    String second = string;
+    
+    second[2] = 'a';
+    
+    PrintString(string);
+    PrintString(second);
+    
+    
     
     std::cin.get();
 }
