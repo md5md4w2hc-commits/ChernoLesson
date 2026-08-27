@@ -1,31 +1,22 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
-struct Vertex
+class Singleton
 {
-    float x, y, z;
-    
-    Vertex(float x, float y, float z)
-        : x(x), y(y), z(z)
+public:
+    static Singleton& Get()
     {
+        static Singleton instance;
+        return instance;
     }
     
-    Vertex(const Vertex& vertex)
-        : x(vertex.x), y(vertex.y), z(vertex.z)
+    void Hello()
     {
-        std::cout << "copied!" << std::endl;
     }
 };
 
 int main()
 {
-    std::vector<Vertex> vertices;
-    vertices.reserve(3);
-    vertices.emplace_back(1, 2, 3);
-    vertices.emplace_back(4, 5, 6);
-    vertices.emplace_back(7, 8, 9);
-
+    Singleton::Get().Hello();
     
     std::cin.get();
 }
