@@ -6,7 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		823A06733042F98600C52743 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A06723042F98600C52743 /* Cocoa.framework */; };
+		823A06753042F99100C52743 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A06743042F99100C52743 /* OpenGL.framework */; };
+		823A06793042F9A900C52743 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A06783042F9A900C52743 /* IOKit.framework */; };
+		823A067B3042F9B400C52743 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A067A3042F9B400C52743 /* CoreVideo.framework */; };
+		823A067C3042FA4500C52743 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A066B3042F60700C52743 /* libglfw.3.dylib */; };
+		823A067D3042FB2D00C52743 /* libglfw.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 823A066B3042F60700C52743 /* libglfw.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		823A067E3042FB2D00C52743 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				823A067D3042FB2D00C52743 /* libglfw.3.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		824A870B30374A130006629D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -19,6 +39,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		823A06673042F5F100C52743 /* glfw3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
+		823A06683042F5F100C52743 /* glfw3native.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
+		823A066B3042F60700C52743 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.dylib; sourceTree = "<group>"; };
+		823A066C3042F60700C52743 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
+		823A06723042F98600C52743 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		823A06743042F99100C52743 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		823A06763042F99C00C52743 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		823A06783042F9A900C52743 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		823A067A3042F9B400C52743 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		824A870D30374A130006629D /* cherno */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cherno; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -35,16 +64,64 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823A067B3042F9B400C52743 /* CoreVideo.framework in Frameworks */,
+				823A06793042F9A900C52743 /* IOKit.framework in Frameworks */,
+				823A06753042F99100C52743 /* OpenGL.framework in Frameworks */,
+				823A06733042F98600C52743 /* Cocoa.framework in Frameworks */,
+				823A067C3042FA4500C52743 /* libglfw.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		823A06663042F5F100C52743 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				823A067A3042F9B400C52743 /* CoreVideo.framework */,
+				823A06783042F9A900C52743 /* IOKit.framework */,
+				823A06763042F99C00C52743 /* CoreAudioKit.framework */,
+				823A06743042F99100C52743 /* OpenGL.framework */,
+				823A06723042F98600C52743 /* Cocoa.framework */,
+				823A066D3042F60700C52743 /* lib-arm64 */,
+				823A066A3042F5F100C52743 /* include */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		823A06693042F5F100C52743 /* GLFW */ = {
+			isa = PBXGroup;
+			children = (
+				823A06673042F5F100C52743 /* glfw3.h */,
+				823A06683042F5F100C52743 /* glfw3native.h */,
+			);
+			path = GLFW;
+			sourceTree = "<group>";
+		};
+		823A066A3042F5F100C52743 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				823A06693042F5F100C52743 /* GLFW */,
+			);
+			name = include;
+			path = Dependencies/GLFW/include;
+			sourceTree = "<group>";
+		};
+		823A066D3042F60700C52743 /* lib-arm64 */ = {
+			isa = PBXGroup;
+			children = (
+				823A066B3042F60700C52743 /* libglfw.3.dylib */,
+				823A066C3042F60700C52743 /* libglfw3.a */,
+			);
+			name = "lib-arm64";
+			path = "Dependencies/GLFW/lib-arm64";
+			sourceTree = "<group>";
+		};
 		824A870430374A130006629D = {
 			isa = PBXGroup;
 			children = (
 				824A870F30374A130006629D /* cherno */,
+				823A06663042F5F100C52743 /* Frameworks */,
 				824A870E30374A130006629D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +144,7 @@
 				824A870930374A130006629D /* Sources */,
 				824A870A30374A130006629D /* Frameworks */,
 				824A870B30374A130006629D /* CopyFiles */,
+				823A067E3042FB2D00C52743 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -245,6 +323,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Dependencies/GLFW/lib-arm64",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -253,6 +335,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Dependencies/GLFW/lib-arm64",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
